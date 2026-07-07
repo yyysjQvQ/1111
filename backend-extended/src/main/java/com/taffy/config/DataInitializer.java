@@ -13,7 +13,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        Long count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM help_articles", Long.class);
+        Integer count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM help_articles", Integer.class);
         if (count != null && count == 0) {
             jdbcTemplate.update(
                 "INSERT INTO help_articles (title, content, category, sort_order) VALUES (?, ?, ?, ?)",

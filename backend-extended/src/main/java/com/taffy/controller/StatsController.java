@@ -60,4 +60,15 @@ public class StatsController {
         result.put("data", session);
         return result;
     }
+
+    @PutMapping("/sessions/{id}/end")
+    public Map<String, Object> endSession(@PathVariable Long id, @RequestBody Map<String, Object> body) {
+        Map<String, Object> result = new HashMap<>();
+        String statsData = body != null && body.containsKey("statsData") ? body.get("statsData").toString() : "{}";
+        LiveSession session = statsService.endSession(id, statsData);
+        result.put("code", 200);
+        result.put("message", "直播已结束");
+        result.put("data", session);
+        return result;
+    }
 }
