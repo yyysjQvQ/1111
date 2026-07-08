@@ -14,6 +14,6 @@ public interface UserMapper {
 
     @Insert("INSERT INTO users (username, password_hash, email, role, created_at, updated_at) " +
             "VALUES (#{username}, #{passwordHash}, #{email}, #{role}, #{createdAt}, #{updatedAt})")
-    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @SelectKey(statement = "SELECT last_insert_rowid()", keyProperty = "id", before = false, resultType = Long.class)
     int insert(User user);
 }

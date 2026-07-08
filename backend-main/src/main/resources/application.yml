@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlite:./data/taffy.db
+    url: jdbc:sqlite:../data/taffy.db
     driver-class-name: org.sqlite.JDBC
     hikari:
       connection-init-sql: PRAGMA foreign_keys = ON
@@ -28,4 +28,4 @@ jwt:
 
 app:
   file:
-    upload-dir: ./data/audio
+    upload-dir: ../data/audio

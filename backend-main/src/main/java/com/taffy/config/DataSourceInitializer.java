@@ -27,15 +27,15 @@ public class DataSourceInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) {
         try {
-            // 确保 data 目录存在
-            File dataDir = new File("./data");
+            // 确保 data 目录存在（相对于项目根目录 taffy/）
+            File dataDir = new File("../data");
             if (!dataDir.exists()) {
                 dataDir.mkdirs();
                 log.info("创建 data 目录: {}", dataDir.getAbsolutePath());
             }
 
             // 确保 audio 目录存在
-            File audioDir = new File("./data/audio");
+            File audioDir = new File("../data/audio");
             if (!audioDir.exists()) {
                 audioDir.mkdirs();
                 log.info("创建 audio 目录: {}", audioDir.getAbsolutePath());
